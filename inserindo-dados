@@ -1,0 +1,15 @@
+INSERT INTO grupos (nome) values ('Anquilossauros'),('Ceratopsídeos'),('Estegossauros'),('Terápodes');
+
+INSERT INTO descobridores (nome) values ('Maryanska'),('John Bell Hatcher'),('Cientistas Alemães'),('Museu Americano de História Natural'),
+	('Othniel Charles Marsh'),('Barnum Brown');
+
+INSERT INTO eras (nome) values ('Cretáceo'),('Jurássico');
+
+INSERT INTO regioes (nome) values ('Mangólia'),('Canadá'),('Tanzânia'),('China'),('América do Norte'),('USA');
+
+INSERT INTO dinossauros (nome, toneladas, ano_descoberta,
+	fk_grupo, fk_descobridor, fk_era, inicio, fim, fk_regiao) values 
+	('Saichania',4,1977,1,1,1,145,66,1),('Tricerátops',6,1887,2,2,1,70,66,2),
+	('Kentrossauro',2,1909,3,3,2,201,145,3),('Pinacossauro',6,1999,1,4,1,85,75,4),
+	('Alossauro',3,1877,4,5,2,155,150,5),('Torossauro',8,1891,2,2,1,67,65,6),
+	('Anquilossauro',8,1906,1,6,1,66,63,5);
