@@ -1,0 +1,56 @@
+--7
+SELECT * FROM dinossauros ORDER BY nome; 
+
+--8
+SELECT * FROM dinossauros, descobridores WHERE dinossauros.fk_descobridor = descobridores.id ORDER BY descobridores.nome;
+
+--9
+SELECT * FROM dinossauros, grupos WHERE dinossauros.fk_grupo = grupos.id AND grupos.nome = 'Anquilossauros' ORDER BY ano_descoberta;
+
+--10
+SELECT * FROM dinossauros, grupos WHERE dinossauros.fk_grupo = grupos.id AND
+	grupos.nome = 'Ceratopsídeos' AND ano_descoberta >=1900 AND ano_descoberta <=1999 OR grupos.nome = 'Anquilossauros' 
+	AND ano_descoberta >=1900 AND ano_descoberta <=1999;
+
+SELECT nome FROM dinossauros;
+
+SELECT nome, toneladas FROM dinossauros ORDER BY nome;
+
+SELECT nome, toneladas FROM dinossauros ORDER BY toneladas;
+
+SELECT * FROM dinossauros, grupos WHERE dinossauros.fk_grupo = grupos.id;
+
+SELECT dinossauros.nome, grupos.nome FROM dinossauros, grupos 
+	WHERE dinossauros.fk_grupo = grupos.id;
+
+SELECT dinossauros.id, dinossauros.nome, dinossauros.toneladas,
+	dinossauros.ano_descoberta, grupos.nome, descobridores.nome, 
+	eras.nome, dinossauros.inicio, dinossauros.fim, regioes.nome
+	FROM dinossauros, grupos, descobridores, eras, regioes
+	WHERE dinossauros.fk_grupo = grupos.id and dinossauros.fk_descobridor = descobridores.id
+	AND dinossauros.fk_era = eras.id and dinossauros.fk_regiao = regioes.id
+	ORDER BY dinossauros.nome;
+
+SELECT * FROM dinossauros, grupos
+	WHERE dinossauros.fk_grupo = grupos.id;
+ 
+SELECT * FROM dinossauros INNER JOIN grupos
+	ON dinossauros.fk_grupo = grupos.id;
+
+SELECT dinossauros.nome, dinossauros.toneladas, dinossauros.ano_descoberta,
+	grupos.nome as Grupo, descobridores.nome as Descobridor, eras.nome as Era, 
+	dinossauros.inicio, dinossauros.fim, regioes.nome as Região
+	FROM dinossauros, grupos, descobridores, eras, regioes
+	WHERE dinossauros.fk_grupo = grupos.id and dinossauros.fk_descobridor = descobridores.id
+	and dinossauros.fk_era = eras.id and dinossauros.fk_regiao = regioes.id
+	ORDER BY dinossauros.nome;
+ 
+SELECT dinossauros.nome, dinossauros.toneladas, dinossauros.ano_descoberta,
+	grupos.nome as Grupo, descobridores.nome as Descobridor, eras.nome as Era, 
+	dinossauros.inicio, dinossauros.fim, regioes.nome as Região
+	FROM dinossauros
+	JOIN grupos on dinossauros.fk_grupo = grupos.id
+	JOIN descobridores on dinossauros.fk_descobridor = descobridores.id
+	JOIN eras on dinossauros.fk_era = eras.id
+	JOIN regioes on dinossauros.fk_regiao = regioes.id
+	ORDER BY dinossauros.nome;
