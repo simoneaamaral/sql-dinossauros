@@ -1,13 +1,13 @@
---7
+--7 Crie uma consulta para relacionar todos os dados disponíveis de todos dinossauros existentes no catálago em ordem alfabética de nome
 SELECT * FROM dinossauros ORDER BY nome; 
 
---8
+--8 Crie uma consulta para relacionar todos os dados disponíveis de todos dinossauros existentes em ordem alfabética de Descobridor
 SELECT * FROM dinossauros, descobridores WHERE dinossauros.fk_descobridor = descobridores.id ORDER BY descobridores.nome;
 
---9
+--9 Crie uma consulta para relacionar todos os dados disponíveis dos dinossauros do grupo Anquilossauros em ordem de ano de descoberta
 SELECT * FROM dinossauros, grupos WHERE dinossauros.fk_grupo = grupos.id AND grupos.nome = 'Anquilossauros' ORDER BY ano_descoberta;
 
---10
+--10 Crie uma consulta para relacionar todos os dados disponíveis dos dinossauros Ceratopsídeos ou Anquilossauros com ano de descoberta entre 1900 e 1999
 SELECT * FROM dinossauros, grupos WHERE dinossauros.fk_grupo = grupos.id AND
 	grupos.nome = 'Ceratopsídeos' AND ano_descoberta >=1900 AND ano_descoberta <=1999 OR grupos.nome = 'Anquilossauros' 
 	AND ano_descoberta >=1900 AND ano_descoberta <=1999;
